@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <script>
+
+        // ------------ Version 1
+        for (var ask = true; ask; ) {
+            var obj = {
+                "+" : (a, b) => a + b,
+                "-" : (a, b) => a - b,
+                "/" : (a, b) => a / b,
+                "*" : (a, b) => a * b
+            };
+            var a = +prompt('Введите значение - А', '');
+            var b = +prompt('Введите значение - Б', '');
+            var operator = prompt('Выберите оператор "+", "-", "/", "*" ', '');
+            alert(obj[operator](a,b));
+            ask = confirm('Продолжить вычисления?');
+        }
+
+        // ------------- Version 2
+        do {
+            var a = +prompt('Введите значение - А', '');
+            var b = +prompt('Введите значение - Б', '');
+            var operator = prompt('Выберите оператор "+", "-", "/", "*" ', '');
+
+            switch (operator) {
+                case '+': alert(a + b);
+                break;
+                case '-': alert(a - b);
+                break;
+                case '/': alert(a / b);
+                break;
+                case '*': alert(a * b);
+                break;
+            }
+            var ask = confirm('Продолжить вычисления?')
+        } while (ask);
+
+        // ---------------- Version 3
+        var ask = true;
+        while (ask) {
+            var a = +prompt('Введите значение - А', '');
+            var b = +prompt('Введите значение - Б', '');
+            var operator = prompt('Выберите оператор "+", "-", "/", "*" ', '');
+            alert(calc(a,b,operator));
+
+            function calc(a,b,operator) {
+                return (operator == "+") ? a + b :
+                    (operator == "-") ? a - b :
+                    (operator == "/") ? a / b :
+                    a * b;
+            }
+            ask = confirm('Продолжить вычисления?');
+        }
+
+    </script>
+</body>
+</html>
